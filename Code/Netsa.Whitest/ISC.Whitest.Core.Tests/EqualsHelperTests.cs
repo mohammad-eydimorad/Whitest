@@ -2,7 +2,7 @@
 using ISC.Whitest.Core.EqualityHelpers;
 using Xunit;
 
-namespace Fujin.Core.Tests.EqualityHelperTests
+namespace ISC.Whitest.Core.Tests
 {
     public class EqualsBuilderTests
     {
