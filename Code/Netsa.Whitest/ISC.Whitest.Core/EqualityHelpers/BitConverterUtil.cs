@@ -2,7 +2,7 @@
 
 namespace ISC.Whitest.Core.EqualityHelpers
 {
-    public static class BitConverterUtil
+    internal static class BitConverterUtil
     {
         public static int SingleToInt32Bits(float value)
         {

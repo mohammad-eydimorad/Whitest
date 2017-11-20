@@ -2,7 +2,7 @@
 
 namespace ISC.Whitest.Core.EqualityHelpers
 {
-    public class MathUtil
+    internal class MathUtil
     {
         public static bool FloatEqualTo(float left, float right, float epsilon)
         {
