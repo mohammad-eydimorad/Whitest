@@ -40,6 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EqualityHelpers\BitConverterUtil.cs" />
+    <Compile Include="EqualityHelpers\EqualsBuilder.cs" />
+    <Compile Include="EqualityHelpers\HashCodeBuilder.cs" />
+    <Compile Include="EqualityHelpers\MathUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
