@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{2C26883F-083
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISC.Whitest.Core.Tests", "ISC.Whitest.Core.Tests\ISC.Whitest.Core.Tests.csproj", "{57E2EE79-9D07-4A95-8234-6CF1FE83591C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01_SampleProject", "01_SampleProject", "{69588AE1-5E5D-4981-94D9-D03C11CE43A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

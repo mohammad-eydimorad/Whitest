@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\ConfigService.cs" />
     <Compile Include="EqualityHelpers\BitConverterUtil.cs" />
     <Compile Include="EqualityHelpers\EqualsBuilder.cs" />
     <Compile Include="EqualityHelpers\HashCodeBuilder.cs" />
