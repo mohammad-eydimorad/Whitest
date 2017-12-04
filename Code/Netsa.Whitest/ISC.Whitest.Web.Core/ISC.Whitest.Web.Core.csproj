@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Hosting\IHost.cs" />
+    <Compile Include="Hosting\IStartableHost.cs" />
     <Compile Include="IISHosting\IISExpressConstants.cs" />
     <Compile Include="WebTestConfiguration.cs" />
     <Compile Include="WebTestConfigurationBuilder.cs" />

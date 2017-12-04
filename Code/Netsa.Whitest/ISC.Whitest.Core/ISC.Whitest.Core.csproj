@@ -46,6 +46,7 @@
     <Compile Include="EqualityHelpers\EqualsBuilder.cs" />
     <Compile Include="EqualityHelpers\HashCodeBuilder.cs" />
     <Compile Include="EqualityHelpers\MathUtil.cs" />
+    <Compile Include="IO\PathHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

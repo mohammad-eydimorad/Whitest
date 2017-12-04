@@ -1,14 +1,25 @@
-﻿namespace ISC.Whitest.Web.Core
+﻿using ISC.Whitest.Web.Core.Hosting;
+
+namespace ISC.Whitest.Web.Core
 {
     public class WebTestConfiguration
     {
-        public bool UseIISExpress { get; private set; }
-        public string IISExpressPath { get; private set; }
-
-        internal WebTestConfiguration(bool useIISExpress, string IISExpressPath)
+        public IHost Host { get; }
+        internal WebTestConfiguration(IHost host)
         {
-            this.UseIISExpress = useIISExpress;
-            this.IISExpressPath = IISExpressPath;
+            Host = host;
+        }
+
+        public void Start()
+        {
+            var startable = Host as IStartableHost;
+            startable?.Start();
+        }
+
+        public void Stop()
+        {
+            var startable = Host as IStartableHost;
+            startable?.Stop();
         }
     }
 }

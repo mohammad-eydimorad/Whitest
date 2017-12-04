@@ -4,10 +4,11 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
+using ISC.Whitest.Web.Core.Hosting;
 
 namespace ISC.Whitest.Web.Core.IISHosting
 {
-    public class IISExpressHost : IDisposable
+    public class IISExpressHost : IStartableHost
     {
         private const string IIS_EXPRESS = @"C:\Program Files (x86)\IIS Express\iisexpress.exe";
         private const string READY_MSG = @"Enter 'Q' to stop IIS Express";
@@ -44,13 +45,17 @@ namespace ISC.Whitest.Web.Core.IISHosting
             };
         }
 
-        public string Path { get; private set; }
+        public string Path { get; }
+        public int Port { get; }
 
-        public int Port { get; private set; }
+        public string Address => $"http://localhost:{Port}";
 
-        public string BaseUrl => $"http://localhost:{Port}";
+        public Task Start()
+        {
+            return Start(default(CancellationToken));
+        }
 
-        public Task Start(CancellationToken cancellationToken = default(CancellationToken))
+        private Task Start(CancellationToken cancellationToken = default(CancellationToken))
         {
             var tcs = new TaskCompletionSource<object>();
 
@@ -106,7 +111,6 @@ namespace ISC.Whitest.Web.Core.IISHosting
 
             return tcs.Task;
         }
-
         public Task Stop()
         {
             var tcs = new TaskCompletionSource<object>(null);
@@ -123,7 +127,6 @@ namespace ISC.Whitest.Web.Core.IISHosting
 
             return tcs.Task;
         }
-
         public void Quit()
         {
             Process proc;
@@ -132,13 +135,11 @@ namespace ISC.Whitest.Web.Core.IISHosting
                 proc.Kill();
             }
         }
-
         public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
         }
-
         protected virtual void Dispose(bool disposing)
         {
             if (disposing)
