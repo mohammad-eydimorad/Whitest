@@ -29,7 +29,7 @@ namespace ISC.Whitest.Web.UI.Configuration
             ,Func<IWebDriver> driverFunc)
         {
             PageFactory.BaseUrl = configuration.Host.Address;
-            PageFactory.WebDriver = driverFunc();
+            PageFactory.driverFactory = driverFunc;
 
             return configuration;
         }

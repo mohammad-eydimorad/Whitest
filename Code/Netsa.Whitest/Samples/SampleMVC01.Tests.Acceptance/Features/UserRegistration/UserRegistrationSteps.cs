@@ -3,18 +3,19 @@ using SampleMVC01.Tests.Acceptance.Models;
 using SampleMVC01.Tests.Acceptance.Pages;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
+using Xunit;
 
-namespace SampleMVC01.Tests.Acceptance.Steps
+namespace SampleMVC01.Tests.Acceptance.Features.UserRegistration
 {
     [Binding]
     public class UserRegistrationSteps
     {
         private readonly RegisterPage _registerPage;
         private readonly ManagePage _managePage;
-        public UserRegistrationSteps()
+        public UserRegistrationSteps(ScenarioContext context)
         {
-            _registerPage = PageFactory.Create<RegisterPage>();
-            _managePage = PageFactory.Create<ManagePage>();
+            _registerPage = PageFactory.Create<RegisterPage>(context);
+            _managePage = PageFactory.Create<ManagePage>(context);
         }
 
         [Given(@"I want to register with the following details :")]
@@ -36,6 +37,7 @@ namespace SampleMVC01.Tests.Acceptance.Steps
         public void ThenIShouldBeGivenAccessToTheSite()
         {
             _managePage.Open();
+            Assert.True(_managePage.IsOpen());
         }
     }
 }

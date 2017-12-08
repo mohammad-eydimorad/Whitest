@@ -10,24 +10,24 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace SampleMVC01.Tests.Acceptance.Steps
+namespace SampleMVC01.Tests.Acceptance.Features.UserRegistration
 {
     using TechTalk.SpecFlow;
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.2.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class UserRegistrationFeature : Xunit.IClassFixture<UserRegistrationFeature.FixtureData>, System.IDisposable
+    public partial class ProvidingASecurePasswordWhenRegisteringFeature : Xunit.IClassFixture<ProvidingASecurePasswordWhenRegisteringFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "UserRegistration.feature"
+#line 1 "SecurePassword.feature"
 #line hidden
         
-        public UserRegistrationFeature(UserRegistrationFeature.FixtureData fixtureData, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public ProvidingASecurePasswordWhenRegisteringFeature(ProvidingASecurePasswordWhenRegisteringFeature.FixtureData fixtureData, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -36,7 +36,8 @@ namespace SampleMVC01.Tests.Acceptance.Steps
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "UserRegistration", "\tIn order to use web site\r\n\tAs a user\r\n\tI want to be able to register", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Providing a secure password when registering", "\tIn order to avoid hackers compromising member accounts\r\n\tAs the systems administ" +
+                    "rator\r\n\tI want new members to provide a secure password when they register", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -71,15 +72,13 @@ namespace SampleMVC01.Tests.Acceptance.Steps
             this.ScenarioTearDown();
         }
         
-        [Xunit.FactAttribute(DisplayName="Registration")]
-        [Xunit.TraitAttribute("FeatureTitle", "UserRegistration")]
-        [Xunit.TraitAttribute("Description", "Registration")]
-        [Xunit.TraitAttribute("Category", "mytag")]
-        public virtual void Registration()
+        [Xunit.FactAttribute(DisplayName="Password is too short")]
+        [Xunit.TraitAttribute("FeatureTitle", "Providing a secure password when registering")]
+        [Xunit.TraitAttribute("Description", "Password is too short")]
+        public virtual void PasswordIsTooShort()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Registration", new string[] {
-                        "mytag"});
-#line 7
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Password is too short", ((string[])(null)));
+#line 6
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -87,19 +86,50 @@ this.ScenarioSetup(scenarioInfo);
                         "Value"});
             table1.AddRow(new string[] {
                         "Email",
-                        "a@a.com"});
+                        "b@b.com"});
             table1.AddRow(new string[] {
                         "Password",
-                        "123456"});
+                        "12345"});
             table1.AddRow(new string[] {
                         "ConfirmPassword",
-                        "123456"});
-#line 8
+                        "12345"});
+#line 7
  testRunner.Given("I want to register with the following details :", ((string)(null)), table1, "Given ");
-#line 13
+#line 12
  testRunner.When("I press submit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 14
- testRunner.Then("I should be given access to the site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 13
+ testRunner.Then("I should be inform that password is too short", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Password requires digit")]
+        [Xunit.TraitAttribute("FeatureTitle", "Providing a secure password when registering")]
+        [Xunit.TraitAttribute("Description", "Password requires digit")]
+        public virtual void PasswordRequiresDigit()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Password requires digit", ((string[])(null)));
+#line 16
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Key",
+                        "Value"});
+            table2.AddRow(new string[] {
+                        "Email",
+                        "c@c.com"});
+            table2.AddRow(new string[] {
+                        "Password",
+                        "abcdefg"});
+            table2.AddRow(new string[] {
+                        "ConfirmPassword",
+                        "abcdefg"});
+#line 17
+ testRunner.Given("I want to register with the following details :", ((string)(null)), table2, "Given ");
+#line 22
+ testRunner.When("I press submit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 23
+ testRunner.Then("I should be inform that password should have at least one digit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -111,12 +141,12 @@ this.ScenarioSetup(scenarioInfo);
             
             public FixtureData()
             {
-                UserRegistrationFeature.FeatureSetup();
+                ProvidingASecurePasswordWhenRegisteringFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                UserRegistrationFeature.FeatureTearDown();
+                ProvidingASecurePasswordWhenRegisteringFeature.FeatureTearDown();
             }
         }
     }

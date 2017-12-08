@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using System;
+using OpenQA.Selenium;
 
 namespace ISC.Whitest.Web.UI.PageObjectModel
 {
@@ -17,6 +18,13 @@ namespace ISC.Whitest.Web.UI.PageObjectModel
         public void Open()
         {
             Driver.Navigate().GoToUrl(FullUrl);
+        }
+
+        public bool IsOpen()
+        {
+            var currentDriverUrl = UrlHelper.WithoutFragments(Driver.Url);
+            var pageUrl = UrlHelper.WithoutFragments(this.FullUrl);
+            return currentDriverUrl.Equals(pageUrl, StringComparison.OrdinalIgnoreCase);
         }
     }
 }

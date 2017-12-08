@@ -1,4 +1,4 @@
-﻿Feature: UserRegistration
+﻿Feature: Users can register in web site
 	In order to use web site
 	As a user
 	I want to be able to register

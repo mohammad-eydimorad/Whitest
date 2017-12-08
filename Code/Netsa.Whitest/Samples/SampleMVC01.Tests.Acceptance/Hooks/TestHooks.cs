@@ -15,6 +15,7 @@ namespace SampleMVC01.Tests.Acceptance.Hooks
     public static class TestHooks
     {
         private static WebTestConfiguration configuration;
+
         [BeforeTestRun]
         public static void BeforeTests()
         {
@@ -36,5 +37,7 @@ namespace SampleMVC01.Tests.Acceptance.Hooks
         {
             configuration.Stop();
         }
+
+
     }
 }

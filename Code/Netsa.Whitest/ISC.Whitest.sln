@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleMVC01", "Samples\Samp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleMVC01.Tests.Acceptance", "Samples\SampleMVC01.Tests.Acceptance\SampleMVC01.Tests.Acceptance.csproj", "{88287764-3AF5-4A46-9A8E-5D907770BD90}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISC.Whitest.Web.UI.Tests", "ISC.Whitest.Web.UI.Tests\ISC.Whitest.Web.UI.Tests.csproj", "{3F972DF9-AC9E-4556-932F-19FEC05616AE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{88287764-3AF5-4A46-9A8E-5D907770BD90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88287764-3AF5-4A46-9A8E-5D907770BD90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88287764-3AF5-4A46-9A8E-5D907770BD90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F972DF9-AC9E-4556-932F-19FEC05616AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F972DF9-AC9E-4556-932F-19FEC05616AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F972DF9-AC9E-4556-932F-19FEC05616AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F972DF9-AC9E-4556-932F-19FEC05616AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,5 +75,6 @@ Global
 		{57E2EE79-9D07-4A95-8234-6CF1FE83591C} = {B1A67781-9D65-4ABE-A206-4B3B7559F700}
 		{031F3487-CDA8-472A-A85A-DFAA893CF2DA} = {69588AE1-5E5D-4981-94D9-D03C11CE43A0}
 		{88287764-3AF5-4A46-9A8E-5D907770BD90} = {69588AE1-5E5D-4981-94D9-D03C11CE43A0}
+		{3F972DF9-AC9E-4556-932F-19FEC05616AE} = {2C26883F-0838-4226-BD89-F2887D1F1B3E}
 	EndGlobalSection
 EndGlobal
