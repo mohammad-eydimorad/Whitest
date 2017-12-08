@@ -80,6 +80,7 @@
       <DependentUpon>SecurePassword.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\UserRegistration\SecurePasswordSteps.cs" />
+    <Compile Include="Hooks\ScenarioHooks.cs" />
     <Compile Include="Models\RegisterErrors.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Pages\ManagePage.cs" />
@@ -90,7 +91,7 @@
       <DependentUpon>UserRegistration.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\UserRegistration\UserRegistrationSteps.cs" />
-    <Compile Include="Hooks\TestHooks.cs" />
+    <Compile Include="Hooks\TestSuiteHooks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

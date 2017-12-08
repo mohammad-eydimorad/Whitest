@@ -12,7 +12,7 @@ using TechTalk.SpecFlow;
 namespace SampleMVC01.Tests.Acceptance.Hooks
 {
     [Binding]
-    public static class TestHooks
+    public static class TestSuiteHooks
     {
         private static WebTestConfiguration configuration;
 
@@ -37,7 +37,6 @@ namespace SampleMVC01.Tests.Acceptance.Hooks
         {
             configuration.Stop();
         }
-
 
     }
 }

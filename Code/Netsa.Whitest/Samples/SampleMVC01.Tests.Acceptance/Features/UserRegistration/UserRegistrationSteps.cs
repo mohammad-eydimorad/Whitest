@@ -1,4 +1,5 @@
-﻿using ISC.Whitest.Web.UI.PageObjectModel;
+﻿using ISC.Whitest.Web.Core.SpecflowExtentions;
+using ISC.Whitest.Web.UI.PageObjectModel;
 using SampleMVC01.Tests.Acceptance.Models;
 using SampleMVC01.Tests.Acceptance.Pages;
 using TechTalk.SpecFlow;
@@ -10,10 +11,12 @@ namespace SampleMVC01.Tests.Acceptance.Features.UserRegistration
     [Binding]
     public class UserRegistrationSteps
     {
+        private readonly ScenarioContext _context;
         private readonly RegisterPage _registerPage;
         private readonly ManagePage _managePage;
         public UserRegistrationSteps(ScenarioContext context)
         {
+            _context = context;
             _registerPage = PageFactory.Create<RegisterPage>(context);
             _managePage = PageFactory.Create<ManagePage>(context);
         }
@@ -21,7 +24,7 @@ namespace SampleMVC01.Tests.Acceptance.Features.UserRegistration
         [Given(@"I want to register with the following details :")]
         public void GivenIWantToRegisterWithTheFollowingDetails(Table table)
         {
-            var registerModel = table.CreateInstance<RegisterModel>();
+            var registerModel = table.CreateInstance<RegisterModel>(_context);
 
             _registerPage.Open();
             _registerPage.FillRegistrationForm(registerModel);

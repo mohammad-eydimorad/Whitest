@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PageObjectModel\TestContextKeys.cs" />
+    <Compile Include="UniqueValue\HasUniqueValueAttribute.cs" />
     <Compile Include="UrlHelper.cs" />
     <Compile Include="Configuration\WebTestConfigurationExtentions.cs" />
     <Compile Include="PageObjectModel\BasePage.cs" />
