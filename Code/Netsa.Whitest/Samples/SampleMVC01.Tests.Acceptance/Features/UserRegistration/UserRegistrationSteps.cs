@@ -1,4 +1,5 @@
 ﻿using ISC.Whitest.Web.Core.SpecflowExtentions;
+using ISC.Whitest.Web.Core.ValueTransformation;
 using ISC.Whitest.Web.UI.PageObjectModel;
 using SampleMVC01.Tests.Acceptance.Models;
 using SampleMVC01.Tests.Acceptance.Pages;
