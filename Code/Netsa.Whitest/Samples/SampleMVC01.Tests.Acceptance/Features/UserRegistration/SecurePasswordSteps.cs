@@ -9,7 +9,7 @@ namespace SampleMVC01.Tests.Acceptance.Features.UserRegistration
     [Binding]
     public class SecurePasswordSteps
     {
-        private RegisterPage _registerPage;
+        private readonly RegisterPage _registerPage;
         public SecurePasswordSteps(ScenarioContext context)
         {
             this._registerPage = PageFactory.Create<RegisterPage>(context);
