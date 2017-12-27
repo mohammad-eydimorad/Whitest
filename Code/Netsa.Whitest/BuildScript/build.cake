@@ -37,7 +37,7 @@ Task("Build")
     MSBuild(solutionPath, configurator =>
         configurator.SetConfiguration(configuration)
             .SetVerbosity(Verbosity.Minimal)
-            .UseToolVersion(MSBuildToolVersion.VS2017)
+            .UseToolVersion(MSBuildToolVersion.VS2015)
             .SetMSBuildPlatform(MSBuildPlatform.x86)
             .SetPlatformTarget(PlatformTarget.MSIL));
 });
