@@ -6,6 +6,7 @@ namespace ISC.Whitest.Core.Configuration
 {
     public static class ConfigurationService
     {
+
         public static string GetConnectionString(string key)
         {
             var connection =  ConfigurationManager.ConnectionStrings[key];
