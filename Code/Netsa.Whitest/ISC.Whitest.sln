@@ -27,9 +27,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISC.Whitest.Web.UI.Tests", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02_SampleProject_WebAPI", "02_SampleProject_WebAPI", "{D290FDB9-C2AD-4801-AD0B-0138DB67E181}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWebAPI01", "SampleWebAPI01\SampleWebAPI01.csproj", "{7EB32E87-6815-49C4-BFEC-1A9D26F33ED1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWebAPI01", "Samples\SampleWebAPI01\SampleWebAPI01.csproj", "{7EB32E87-6815-49C4-BFEC-1A9D26F33ED1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWebAPI01.Tests.Integration", "SampleWebAPI01.Tests.Integration\SampleWebAPI01.Tests.Integration.csproj", "{0CE4F4C5-C6D2-42C8-A49F-627885267DE9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWebAPI01.Tests.Integration", "Samples\SampleWebAPI01.Tests.Integration\SampleWebAPI01.Tests.Integration.csproj", "{0CE4F4C5-C6D2-42C8-A49F-627885267DE9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
