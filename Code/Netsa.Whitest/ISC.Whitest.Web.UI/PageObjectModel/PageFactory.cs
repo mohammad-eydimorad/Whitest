@@ -3,26 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ISC.Whitest.Web.UI.Configuration;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 
 namespace ISC.Whitest.Web.UI.PageObjectModel
 {
-    public static class PageFactory
+    public class PageFactory : IDisposable
     {
-        internal static Func<IWebDriver> driverFactory;
-        internal static string BaseUrl;
-        public static T Create<T>(ScenarioContext context) where T : BasePage, new()
+        private readonly IWebDriver _driver;
+        public PageFactory()
         {
-            if (!context.ContainsKey(TestContextKeys.WebDriver))
-            {
-                context.Add(TestContextKeys.WebDriver, driverFactory());
-            }
-
-            var driver = context.Get<IWebDriver>(TestContextKeys.WebDriver);
+            _driver = WebUITestConfiguration.DriverFactory();
+        }
+        public T Create<T>() where T : BasePage, new()
+        {
             var page = new T();
-            page.Initial(driver, BaseUrl);
+            page.Initial(_driver, WebUITestConfiguration.BaseUrl);
             return page;
+        }
+        public void Dispose()
+        {
+            _driver.Close();
         }
     }
 }

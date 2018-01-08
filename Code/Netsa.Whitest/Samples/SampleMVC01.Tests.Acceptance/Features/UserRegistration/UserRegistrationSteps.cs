@@ -1,5 +1,11 @@
-﻿using ISC.Whitest.Web.Core.SpecflowExtentions;
+﻿using System;
+using System.Runtime.Remoting.Contexts;
+using ISC.Whitest.Core.Configuration;
+using ISC.Whitest.Core.IO;
+using ISC.Whitest.Web.Core;
+using ISC.Whitest.Web.Core.SpecflowExtentions;
 using ISC.Whitest.Web.Core.ValueTransformation;
+using ISC.Whitest.Web.UI.Configuration;
 using ISC.Whitest.Web.UI.PageObjectModel;
 using SampleMVC01.Tests.Acceptance.Models;
 using SampleMVC01.Tests.Acceptance.Pages;
@@ -15,11 +21,11 @@ namespace SampleMVC01.Tests.Acceptance.Features.UserRegistration
         private readonly ScenarioContext _context;
         private readonly RegisterPage _registerPage;
         private readonly ManagePage _managePage;
-        public UserRegistrationSteps(ScenarioContext context)
+        public UserRegistrationSteps(PageFactory pageFactory, ScenarioContext context)
         {
             _context = context;
-            _registerPage = PageFactory.Create<RegisterPage>(context);
-            _managePage = PageFactory.Create<ManagePage>(context);
+            _registerPage = pageFactory.Create<RegisterPage>();
+            _managePage = pageFactory.Create<ManagePage>();
         }
 
         [Given(@"I want to register with the following details :")]

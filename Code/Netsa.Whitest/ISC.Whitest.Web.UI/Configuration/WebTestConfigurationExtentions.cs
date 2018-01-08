@@ -15,21 +15,19 @@ namespace ISC.Whitest.Web.UI.Configuration
     {
         public static WebTestConfiguration UseChrome(this WebTestConfiguration configuration, string driverPath)
         {
-            return ConfigPageFactory(configuration, ()=> new ChromeDriver(driverPath));
+            return Config(configuration, ()=> new ChromeDriver(driverPath));
         }
-
-       
 
         public static WebTestConfiguration UsePhantomJs(this WebTestConfiguration configuration, string driverPath)
         {
-            return ConfigPageFactory(configuration, ()=> new PhantomJSDriver(driverPath));
+            return Config(configuration, ()=> new PhantomJSDriver(driverPath));
         }
 
-        private static WebTestConfiguration ConfigPageFactory(WebTestConfiguration configuration
+        private static WebTestConfiguration Config(WebTestConfiguration configuration
             ,Func<IWebDriver> driverFunc)
         {
-            PageFactory.BaseUrl = configuration.BaseUrl;
-            PageFactory.driverFactory = driverFunc;
+            WebUITestConfiguration.BaseUrl = configuration.BaseUrl;
+            WebUITestConfiguration.DriverFactory = driverFunc;
 
             return configuration;
         }

@@ -10,9 +10,9 @@ namespace SampleMVC01.Tests.Acceptance.Features.UserRegistration
     public class SecurePasswordSteps
     {
         private readonly RegisterPage _registerPage;
-        public SecurePasswordSteps(ScenarioContext context)
+        public SecurePasswordSteps(PageFactory pageFactory)
         {
-            this._registerPage = PageFactory.Create<RegisterPage>(context);
+            this._registerPage = pageFactory.Create<RegisterPage>();
         }
 
         [Then(@"I should be inform that password is too short")]
