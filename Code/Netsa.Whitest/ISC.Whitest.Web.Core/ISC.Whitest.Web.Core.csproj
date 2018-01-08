@@ -53,6 +53,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Hooks\IWebConfiguratonHook.cs" />
+    <Compile Include="Hosting\StartableHostHook.cs" />
     <Compile Include="Hosting\IHost.cs" />
     <Compile Include="Hosting\IStartableHost.cs" />
     <Compile Include="IISHosting\IISExpressConstants.cs" />

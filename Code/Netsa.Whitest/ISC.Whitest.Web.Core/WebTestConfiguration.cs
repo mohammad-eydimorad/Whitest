@@ -1,25 +1,34 @@
-﻿using ISC.Whitest.Web.Core.Hosting;
+﻿using System.Collections.Generic;
+using System.Linq;
+using ISC.Whitest.Core.DefensiveProgramming;
+using ISC.Whitest.Web.Core.Hooks;
+using ISC.Whitest.Web.Core.Hosting;
 
 namespace ISC.Whitest.Web.Core
 {
     public class WebTestConfiguration
     {
-        public IHost Host { get; }
-        internal WebTestConfiguration(IHost host)
+        public string BaseUrl { get; private set; }
+        private readonly List<IWebConfiguratonHook> _hooks;
+        internal WebTestConfiguration(string baseUrl)
         {
-            Host = host;
+            this._hooks = new List<IWebConfiguratonHook>();
+            this.BaseUrl = baseUrl;
+        }
+
+        public void AddHook(IWebConfiguratonHook hook)
+        {
+            _hooks.Add(hook);
         }
 
         public void Start()
         {
-            var startable = Host as IStartableHost;
-            startable?.Start();
+            _hooks.ForEach(a=> a.Start());
         }
 
         public void Stop()
         {
-            var startable = Host as IStartableHost;
-            startable?.Stop();
+            _hooks.ForEach(a=>a.Stop());
         }
     }
 }

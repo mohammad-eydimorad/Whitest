@@ -28,7 +28,7 @@ namespace ISC.Whitest.Web.UI.Configuration
         private static WebTestConfiguration ConfigPageFactory(WebTestConfiguration configuration
             ,Func<IWebDriver> driverFunc)
         {
-            PageFactory.BaseUrl = configuration.Host.Address;
+            PageFactory.BaseUrl = configuration.BaseUrl;
             PageFactory.driverFactory = driverFunc;
 
             return configuration;

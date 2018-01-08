@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\ConfigService.cs" />
+    <Compile Include="DefensiveProgramming\Ensure.cs" />
+    <Compile Include="DefensiveProgramming\Guard.cs" />
     <Compile Include="EqualityHelpers\BitConverterUtil.cs" />
     <Compile Include="EqualityHelpers\EqualsBuilder.cs" />
     <Compile Include="EqualityHelpers\HashCodeBuilder.cs" />
@@ -50,6 +52,7 @@
     <Compile Include="IO\PathHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
