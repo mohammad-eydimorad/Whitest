@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ISC.Whitest.Web.Core.Hooks;
+﻿using ISC.Whitest.Web.Core.Hooks;
 
-namespace ISC.Whitest.Web.Core.Hosting
+namespace ISC.Whitest.Web.Core.Hosting.Core
 {
     public class StartableHostHook : IWebConfiguratonHook
     {

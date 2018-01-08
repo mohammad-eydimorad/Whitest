@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ISC.Whitest.Web.Core.IISHosting
+﻿namespace ISC.Whitest.Web.Core.Hosting.IISExpressHosting
 {
     public static class IISExpressConstants
     {

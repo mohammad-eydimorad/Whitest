@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using ISC.Whitest.Web.Core.Hooks;
 using ISC.Whitest.Web.Core.Hosting;
-using ISC.Whitest.Web.Core.IISHosting;
+using ISC.Whitest.Web.Core.Hosting.Core;
+using ISC.Whitest.Web.Core.Hosting.IISExpressHosting;
 
 namespace ISC.Whitest.Web.Core
 {
@@ -30,6 +31,12 @@ namespace ISC.Whitest.Web.Core
             var host = new IISExpressHost(folderPath, port, iisPath);
             _hooks.Add(new StartableHostHook(host));
             baseUrl = host.Address;
+            return this;
+        }
+
+        public WebTestConfigurationBuilder UseRemoteHost(string address)
+        {
+            this.baseUrl = address;
             return this;
         }
 

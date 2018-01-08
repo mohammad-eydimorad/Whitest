@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace ISC.Whitest.Web.Core.IISHosting
+namespace ISC.Whitest.Web.Core.Hosting.IISExpressHosting
 {
     internal static class NativeMethods
     {

@@ -4,9 +4,9 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
-using ISC.Whitest.Web.Core.Hosting;
+using ISC.Whitest.Web.Core.Hosting.Core;
 
-namespace ISC.Whitest.Web.Core.IISHosting
+namespace ISC.Whitest.Web.Core.Hosting.IISExpressHosting
 {
     public class IISExpressHost : IStartableHost
     {

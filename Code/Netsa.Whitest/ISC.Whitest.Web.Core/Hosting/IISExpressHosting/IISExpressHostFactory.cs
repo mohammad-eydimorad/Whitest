@@ -1,4 +1,4 @@
-﻿namespace ISC.Whitest.Web.Core.IISHosting
+﻿namespace ISC.Whitest.Web.Core.Hosting.IISExpressHosting
 {
     public class IISExpressHostFactory
     {

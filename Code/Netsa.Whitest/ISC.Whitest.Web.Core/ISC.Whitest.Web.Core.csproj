@@ -54,10 +54,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Hooks\IWebConfiguratonHook.cs" />
-    <Compile Include="Hosting\StartableHostHook.cs" />
-    <Compile Include="Hosting\IHost.cs" />
-    <Compile Include="Hosting\IStartableHost.cs" />
-    <Compile Include="IISHosting\IISExpressConstants.cs" />
+    <Compile Include="Hosting\Core\StartableHostHook.cs" />
+    <Compile Include="Hosting\Core\IHost.cs" />
+    <Compile Include="Hosting\Core\IStartableHost.cs" />
+    <Compile Include="Hosting\IISExpressHosting\IISExpressConstants.cs" />
     <Compile Include="SpecflowExtentions\TableExtentions.cs" />
     <Compile Include="ValueTransformation\RandomValueGenerator.cs" />
     <Compile Include="ValueTransformation\FieldType.cs" />
@@ -65,9 +65,9 @@
     <Compile Include="ValueTransformation\ValueTransformationHandler.cs" />
     <Compile Include="WebTestConfiguration.cs" />
     <Compile Include="WebTestConfigurationBuilder.cs" />
-    <Compile Include="IISHosting\IISExpressHost.cs" />
-    <Compile Include="IISHosting\IISExpressHostFactory.cs" />
-    <Compile Include="IISHosting\NativeMethods.cs" />
+    <Compile Include="Hosting\IISExpressHosting\IISExpressHost.cs" />
+    <Compile Include="Hosting\IISExpressHosting\IISExpressHostFactory.cs" />
+    <Compile Include="Hosting\IISExpressHosting\NativeMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

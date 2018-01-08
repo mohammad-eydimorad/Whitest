@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace ISC.Whitest.Web.Core.Hosting
+namespace ISC.Whitest.Web.Core.Hosting.Core
 {
     public interface IStartableHost : IHost, IDisposable
     {
