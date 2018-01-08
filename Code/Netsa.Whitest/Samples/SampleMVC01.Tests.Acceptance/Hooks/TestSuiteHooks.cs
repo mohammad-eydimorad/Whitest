@@ -29,7 +29,8 @@ namespace SampleMVC01.Tests.Acceptance.Hooks
                        .UseIISExpressX86(webFolderPath, port)
                        .Build();
 
-            configuration.UseChrome(driverPath).Start();
+            //configuration.UseChrome(driverPath).Start();
+            configuration.UsePhantomJs(driverPath).Start();
         }
 
         [AfterTestRun]
