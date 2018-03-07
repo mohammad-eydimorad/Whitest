@@ -18,6 +18,29 @@ namespace ISC.Whitest.Web.Core.SpecflowExtentions
             return output;
         }
 
+        public static List<T> ConvertTableToList<T>(this Table table) where T : new()
+        {
+            var convertTableToList = new List<T>();
+            var objType = typeof(T);
+            foreach (var row in table.Rows)
+            {
+                var obj = new T();
+                foreach (var colName in row.Keys)
+                {
+                    if (string.IsNullOrWhiteSpace(row[colName])) continue;
+                    var propertyInfo = objType.GetProperty(colName.Replace(" ", string.Empty));
+                    if (propertyInfo == null) continue;
+                    //TODO: get parse method from type with reflection
+                    if (propertyInfo.PropertyType == typeof(int) || propertyInfo.PropertyType == typeof(int?))
+                        propertyInfo.SetValue(obj, int.Parse(row[colName]));
+                    else
+                        propertyInfo.SetValue(obj, row[colName]);
+                }
+                convertTableToList.Add(obj);
+            }
+            return convertTableToList;
+        }
+
         private static void HandleValueTransformation<T>(T output, ScenarioContext context)
         {
             if (!context.ScenarioContainer.IsRegistered<ValueTransformationHandler>()) return;
@@ -32,9 +55,11 @@ namespace ISC.Whitest.Web.Core.SpecflowExtentions
                     var newValue = RandomValueGenerator.Generate(transformationAttribute.Type);
 
                     handler.Add(transformationAttribute.Key, propertyInfo.GetValue(output).ToString(), newValue);
-                    propertyInfo.SetValue(output,newValue);
+                    propertyInfo.SetValue(output, newValue);
                 }
             }
         }
+
+
     }
 }
