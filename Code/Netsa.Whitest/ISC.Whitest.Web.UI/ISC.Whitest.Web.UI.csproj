@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\WebUITestConfiguration.cs" />
+    <Compile Include="CssSelectors\CssSelector.cs" />
     <Compile Include="UniqueValue\HasUniqueValueAttribute.cs" />
     <Compile Include="UrlHelper.cs" />
     <Compile Include="Configuration\WebTestConfigurationExtentions.cs" />
