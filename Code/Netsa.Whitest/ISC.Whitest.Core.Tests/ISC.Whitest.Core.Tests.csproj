@@ -80,7 +80,7 @@
   <ItemGroup>
     <Compile Include="DefensiveProgramming\EnsureTests.cs" />
     <Compile Include="DefensiveProgramming\GuardTests.cs" />
-    <Compile Include="PathHelperTests.cs" />
+    <Compile Include="IO\PathHelperTests.cs" />
     <Compile Include="Configuration\ConfigServiceTests.cs" />
     <Compile Include="EqualityHelpers\EqualsHelperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
