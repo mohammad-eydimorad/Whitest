@@ -82,7 +82,7 @@
     <Compile Include="DefensiveProgramming\GuardTests.cs" />
     <Compile Include="PathHelperTests.cs" />
     <Compile Include="ConfigServiceTests.cs" />
-    <Compile Include="EqualsHelperTests.cs" />
+    <Compile Include="EqualityHelpers\EqualsHelperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
