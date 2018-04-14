@@ -8,8 +8,8 @@ namespace ISC.Whitest.Web.Core
 {
     public class WebTestConfiguration
     {
-        public string BaseUrl { get; private set; }
         private readonly List<IWebConfiguratonHook> _hooks;
+        public string BaseUrl { get; private set; }
         internal WebTestConfiguration(string baseUrl)
         {
             this._hooks = new List<IWebConfiguratonHook>();

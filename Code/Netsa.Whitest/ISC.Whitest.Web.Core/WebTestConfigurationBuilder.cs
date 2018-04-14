@@ -18,23 +18,22 @@ namespace ISC.Whitest.Web.Core
         {
             this._hooks = new List<IWebConfiguratonHook>();
         }
-        public WebTestConfigurationBuilder UseIISExpress(string folderPath, int port)
+        public WebTestConfigurationBuilder AddIISExpressHost(string folderPath, int port)
         {
-            return UseIISExpress(IISExpressConstants.IISExpressPath, folderPath, port);
+            return AddIISExpressHost(IISExpressConstants.IISExpressPath, folderPath, port);
         }
-        public WebTestConfigurationBuilder UseIISExpressX86(string folderPath, int port)
+        public WebTestConfigurationBuilder AddIISExpressHostX86(string folderPath, int port)
         {
-            return UseIISExpress(IISExpressConstants.IISExpressX86Path, folderPath, port);
+            return AddIISExpressHost(IISExpressConstants.IISExpressX86Path, folderPath, port);
         }
-        private WebTestConfigurationBuilder UseIISExpress(string iisPath,  string folderPath, int port)
+        private WebTestConfigurationBuilder AddIISExpressHost(string iisPath,  string folderPath, int port)
         {
             var host = new IISExpressHost(folderPath, port, iisPath);
             _hooks.Add(new StartableHostHook(host));
-            baseUrl = host.Address;
             return this;
         }
 
-        public WebTestConfigurationBuilder UseRemoteHost(string address)
+        public WebTestConfigurationBuilder SetBaseUrl(string address)
         {
             this.baseUrl = address;
             return this;
