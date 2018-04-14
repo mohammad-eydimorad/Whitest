@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Runtime.Remoting.Contexts;
 using ISC.Whitest.Core.Configuration;
 using ISC.Whitest.Core.IO;

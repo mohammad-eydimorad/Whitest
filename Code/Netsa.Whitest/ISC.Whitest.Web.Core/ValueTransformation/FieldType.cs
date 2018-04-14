@@ -2,6 +2,7 @@
 {
     public enum FieldType
     {
-        Email        
+        Email,
+        Username
     }
 }

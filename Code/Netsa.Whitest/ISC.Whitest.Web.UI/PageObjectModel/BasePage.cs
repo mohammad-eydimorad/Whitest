@@ -15,15 +15,21 @@ namespace ISC.Whitest.Web.UI.PageObjectModel
         protected abstract string RelativeUrl { get; }
         protected string FullUrl => BaseUrl + RelativeUrl;
 
-        public void Open()
+        public virtual void Open()
         {
             Driver.Navigate().GoToUrl(FullUrl);
         }
 
-        public bool IsOpen()
+        public virtual bool IsOpen(bool excludeFragments = false)
         {
-            var currentDriverUrl = UrlHelper.WithoutFragments(Driver.Url);
-            var pageUrl = UrlHelper.WithoutFragments(this.FullUrl);
+            var currentDriverUrl = Driver.Url;
+            var pageUrl = this.FullUrl;
+
+            if (excludeFragments)
+            {
+                currentDriverUrl = UrlHelper.WithoutFragments(Driver.Url);
+                pageUrl = UrlHelper.WithoutFragments(this.FullUrl);
+            }
             return currentDriverUrl.Equals(pageUrl, StringComparison.OrdinalIgnoreCase);
         }
     }

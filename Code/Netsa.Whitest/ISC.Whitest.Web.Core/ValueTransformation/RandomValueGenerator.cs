@@ -13,6 +13,7 @@ namespace ISC.Whitest.Web.Core.ValueTransformation
             switch (type)
             {
                 case FieldType.Email: return Faker.Internet.Email();
+                case FieldType.Username: return Faker.Internet.UserName();
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }

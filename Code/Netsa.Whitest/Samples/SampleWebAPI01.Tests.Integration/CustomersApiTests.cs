@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Web.Http;
 using ISC.Whitest.Web.Api;
@@ -15,7 +16,7 @@ namespace SampleWebAPI01.Tests.Integration
             this._fixture = fixture;
         }
 
-        [Fact]
+        [Fact(Skip = "Ignore")]
         public void Post_should_create_new_customer()
         {
             //var task = fixture.Client.PostAsync("http://isc.net/api/Customers", new StringContent(""));
