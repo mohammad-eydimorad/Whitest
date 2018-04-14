@@ -27,7 +27,7 @@ namespace ISC.Whitest.Core.DefensiveProgramming
             {
                 if (string.IsNullOrWhiteSpace(argument))
                 {
-                    throw new ArgumentException($"{argumentName} is null or whitespace");
+                    throw new ArgumentException($"{argumentName} is null or whitespace", argumentName);
                 }
             }
         }
