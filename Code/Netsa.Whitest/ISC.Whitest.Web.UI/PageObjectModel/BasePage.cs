@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 
 namespace ISC.Whitest.Web.UI.PageObjectModel
 {
-    public abstract class BasePage
+    public abstract class BasePage<T> where T : BasePage<T>
     {
         public IWebDriver Driver { get; private set; }
         protected string BaseUrl;
@@ -15,9 +15,10 @@ namespace ISC.Whitest.Web.UI.PageObjectModel
         protected abstract string RelativeUrl { get; }
         protected string FullUrl => BaseUrl + RelativeUrl;
 
-        public virtual void Open()
+        public virtual T Open()
         {
             Driver.Navigate().GoToUrl(FullUrl);
+            return (T)this;
         }
 
         public virtual bool IsOpen(bool excludeFragments = false)

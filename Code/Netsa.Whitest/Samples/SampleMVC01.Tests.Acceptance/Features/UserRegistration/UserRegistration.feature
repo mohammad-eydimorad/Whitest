@@ -3,7 +3,7 @@
 	As a user
 	I want to be able to register
 
-@mytag
+@UI
 Scenario: Registration
 	Given I want to register with the following details :
 	| Key             | Value   |

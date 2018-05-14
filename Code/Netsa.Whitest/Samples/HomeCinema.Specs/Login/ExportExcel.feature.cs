@@ -10,24 +10,24 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace SampleMVC01.Tests.Acceptance.Features.UserRegistration
+namespace HomeCinema.Specs.Login
 {
     using TechTalk.SpecFlow;
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.3.2.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class UsersCanRegisterInWebSiteFeature : Xunit.IClassFixture<UsersCanRegisterInWebSiteFeature.FixtureData>, System.IDisposable
+    public partial class UsersCanExportReportsInExcelFormatiFeature : Xunit.IClassFixture<UsersCanExportReportsInExcelFormatiFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "UserRegistration.feature"
+#line 1 "ExportExcel.feature"
 #line hidden
         
-        public UsersCanRegisterInWebSiteFeature(UsersCanRegisterInWebSiteFeature.FixtureData fixtureData, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public UsersCanExportReportsInExcelFormatiFeature(UsersCanExportReportsInExcelFormatiFeature.FixtureData fixtureData, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -36,7 +36,7 @@ namespace SampleMVC01.Tests.Acceptance.Features.UserRegistration
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Users can register in web site", "\tIn order to use web site\r\n\tAs a user\r\n\tI want to be able to register", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Users can export reports in excel formati", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -71,35 +71,39 @@ namespace SampleMVC01.Tests.Acceptance.Features.UserRegistration
             this.ScenarioTearDown();
         }
         
-        [Xunit.FactAttribute(DisplayName="Registration")]
-        [Xunit.TraitAttribute("FeatureTitle", "Users can register in web site")]
-        [Xunit.TraitAttribute("Description", "Registration")]
+        [Xunit.FactAttribute(DisplayName="Excel Report")]
+        [Xunit.TraitAttribute("FeatureTitle", "Users can export reports in excel formati")]
+        [Xunit.TraitAttribute("Description", "Excel Report")]
         [Xunit.TraitAttribute("Category", "UI")]
-        public virtual void Registration()
+        public virtual void ExcelReport()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Registration", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Excel Report", new string[] {
                         "UI"});
-#line 7
+#line 5
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Key",
-                        "Value"});
+                        "Field1",
+                        "Field2",
+                        "Field3"});
             table1.AddRow(new string[] {
-                        "Email",
-                        "a@a.com"});
+                        "X1",
+                        "Y1",
+                        "Z1"});
             table1.AddRow(new string[] {
-                        "Password",
-                        "123456"});
+                        "X2",
+                        "Y2",
+                        "Z2"});
             table1.AddRow(new string[] {
-                        "ConfirmPassword",
-                        "123456"});
-#line 8
- testRunner.Given("I want to register with the following details :", ((string)(null)), table1, "Given ");
-#line 13
- testRunner.When("I press submit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 14
- testRunner.Then("I should be given access to the site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+                        "X3",
+                        "Y3",
+                        "Z3"});
+#line 6
+ testRunner.Given("I am viewing following records as search result :", ((string)(null)), table1, "Given ");
+#line 11
+ testRunner.When("I request for export to excel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 12
+ testRunner.Then("I should be given an excel file matching the data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -111,12 +115,12 @@ this.ScenarioSetup(scenarioInfo);
             
             public FixtureData()
             {
-                UsersCanRegisterInWebSiteFeature.FeatureSetup();
+                UsersCanExportReportsInExcelFormatiFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                UsersCanRegisterInWebSiteFeature.FeatureTearDown();
+                UsersCanExportReportsInExcelFormatiFeature.FeatureTearDown();
             }
         }
     }
