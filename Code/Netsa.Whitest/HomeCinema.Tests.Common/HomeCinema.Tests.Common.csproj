@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{947E8DD1-34CA-46B9-8807-60C55AF9C894}</ProjectGuid>
+    <ProjectGuid>{78CEC29B-9F1A-4E77-AE0E-3E92CFF5AC4A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ISC.Whitest.Web.UI</RootNamespace>
-    <AssemblyName>ISC.Whitest.Web.UI</AssemblyName>
+    <RootNamespace>HomeCinema.Tests.Common</RootNamespace>
+    <AssemblyName>HomeCinema.Tests.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -39,7 +38,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
       <Private>True</Private>
@@ -54,20 +52,15 @@
       <HintPath>..\packages\SpecFlow.2.3.2\lib\net45\TechTalk.SpecFlow.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="WebDriver, Version=3.11.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Selenium.WebDriver.3.11.2\lib\net45\WebDriver.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\WebUITestConfiguration.cs" />
-    <Compile Include="CssSelectors\CssSelector.cs" />
-    <Compile Include="UniqueValue\HasUniqueValueAttribute.cs" />
-    <Compile Include="UrlHelper.cs" />
-    <Compile Include="Configuration\WebTestConfigurationExtentions.cs" />
-    <Compile Include="PageObjectModel\BasePage.cs" />
-    <Compile Include="PageObjectModel\PageFactory.cs" />
+    <Compile Include="Constants\UserConstants.cs" />
+    <Compile Include="Hooks\ScenarioHooks.cs" />
+    <Compile Include="Hooks\TestSuiteHooks.cs" />
+    <Compile Include="IAdministrator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\RegistrationModel.cs" />
+    <Compile Include="Steps\LoginSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ISC.Whitest.Core\ISC.Whitest.Core.csproj">
@@ -77,6 +70,10 @@
     <ProjectReference Include="..\ISC.Whitest.Web.Core\ISC.Whitest.Web.Core.csproj">
       <Project>{418c97d1-ddeb-46fa-aaef-942942f60b4d}</Project>
       <Name>ISC.Whitest.Web.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ISC.Whitest.Web.UI\ISC.Whitest.Web.UI.csproj">
+      <Project>{947e8dd1-34ca-46b9-8807-60c55af9c894}</Project>
+      <Name>ISC.Whitest.Web.UI</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
