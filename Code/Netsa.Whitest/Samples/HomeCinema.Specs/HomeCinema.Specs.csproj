@@ -104,10 +104,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\HomeCinema.Tests.Acceptance\HomeCinema.Tests.Acceptance.csproj">
-      <Project>{a33cd9c3-5dde-4fd0-81c8-520d0f1bc6e4}</Project>
-      <Name>HomeCinema.Tests.Acceptance</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\ISC.Whitest.Core\ISC.Whitest.Core.csproj">
       <Project>{3724bc4e-6a8e-458a-b51e-29f859609207}</Project>
       <Name>ISC.Whitest.Core</Name>
