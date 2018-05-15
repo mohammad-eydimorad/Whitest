@@ -12,7 +12,7 @@ using SampleMVC01.Tests.Acceptance.Models;
 
 namespace SampleMVC01.Tests.Acceptance.Pages
 {
-    public class RegisterPage : BasePage
+    public class RegisterPage : BasePage<RegisterPage>
     {
         protected override string RelativeUrl => "/Account/Register";
 

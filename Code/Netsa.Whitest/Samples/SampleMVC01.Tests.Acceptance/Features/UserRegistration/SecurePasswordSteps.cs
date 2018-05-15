@@ -1,4 +1,5 @@
-﻿using ISC.Whitest.Web.UI.PageObjectModel;
+﻿using System.Diagnostics;
+using ISC.Whitest.Web.UI.PageObjectModel;
 using SampleMVC01.Tests.Acceptance.Models;
 using SampleMVC01.Tests.Acceptance.Pages;
 using TechTalk.SpecFlow;

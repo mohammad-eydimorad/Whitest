@@ -24,13 +24,14 @@ namespace SampleMVC01.Tests.Acceptance.Hooks
             var port = ConfigurationService.GetValue<int>("Port");
             var driverPath = ConfigurationService.GetValue<string>("DriverPath");
             driverPath = PathHelper.RelativeToAbsolute(AppDomain.CurrentDomain.BaseDirectory, driverPath);
+            var baseUrl = $"http://localhost:{port}";
 
             configuration = new WebTestConfigurationBuilder()
-                       .UseIISExpressX86(webFolderPath, port)
+                       .AddIISExpressHostX86(webFolderPath, port)
+                       .SetBaseUrl(baseUrl)
                        .Build();
 
             configuration.UseChrome(driverPath).Start();
-            //configuration.UsePhantomJs(driverPath).Start();
         }
 
         [AfterTestRun]

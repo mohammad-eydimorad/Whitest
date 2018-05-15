@@ -8,7 +8,7 @@ using OpenQA.Selenium;
 
 namespace SampleMVC01.Tests.Acceptance.Pages
 {
-    public class ManagePage : BasePage
+    public class ManagePage : BasePage<ManagePage>
     {
         protected override string RelativeUrl => "/Manage";
 

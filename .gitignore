@@ -157,3 +157,6 @@ $RECYCLE.BIN/
 .DS_Store
 *.tf1
 Code/Netsa.Whitest/BuildScript/tools/
+NDependout/
+*.ndproj
+Code/.vs/

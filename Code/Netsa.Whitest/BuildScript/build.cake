@@ -42,15 +42,16 @@ Task("Build")
             .SetPlatformTarget(PlatformTarget.MSIL));
 });
 
-// Task("Run-Tests")
-//     .IsDependentOn("Build")
-//     .Does(()=>
-// {
-//     XUnit2("../**/*.Tests*.dll");
-// });
+Task("Run-Tests")
+     .IsDependentOn("Build")
+     .Does(()=>
+ {
+     var pathForTests = "../**/bin/" + configuration + "/*.Tests*.dll";
+     XUnit2(pathForTests);
+ });
 
 // Task("Create-Nuget-Packages")
-//     .IsDependentOn("Build")
+//     .IsDependentOn("Run-Tests")
 //     .Does(()=>{
 
 //     var nuGetPackSettings = new NuGetPackSettings
@@ -85,12 +86,9 @@ Task("Build")
     //                     Source = nugetServerUrl,
     //                     ApiKey = nugetApiKey,
     //                 };
-
-   
-
     // NuGetPush(files, settings);
 // });
 
-Task("Default").IsDependentOn("Build");
+Task("Default").IsDependentOn("Run-Tests");
 
 RunTarget(target);
