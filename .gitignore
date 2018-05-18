@@ -160,3 +160,4 @@ Code/Netsa.Whitest/BuildScript/tools/
 NDependout/
 *.ndproj
 Code/.vs/
+/Code/Netsa.Whitest/.vs/config
