@@ -15,7 +15,6 @@ namespace HomeCinema.Tests.Acceptance.Web.Login
             
         }
 
-
         public LoginPage DoLogin(string username, string password)
         {
             return this;

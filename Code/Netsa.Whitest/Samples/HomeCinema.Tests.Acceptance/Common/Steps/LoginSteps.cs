@@ -19,7 +19,7 @@ namespace HomeCinema.Tests.Acceptance.Common.Steps
         [Given(@"I have already registered with following information :")]
         public void GivenIHaveAlreadyRegisteredWithFollowingInformation(Table table)
         {
-            var model = table.CreateInstance<RegistrationModel>(this.Context);
+            var model = table.CreateInstance<RegistrationTestModel>(this.Context);
             base.AddModeltoContext(UserConstants.Registration,model);
             _administrator.Register(model);
         }
@@ -27,7 +27,7 @@ namespace HomeCinema.Tests.Acceptance.Common.Steps
         [When(@"I log in")]
         public void WhenILogIn()
         {
-            var model = Context.Get<RegistrationModel>(UserConstants.Registration);
+            var model = Context.Get<RegistrationTestModel>(UserConstants.Registration);
             _administrator.Login(model.Email, model.Password);
         }
         

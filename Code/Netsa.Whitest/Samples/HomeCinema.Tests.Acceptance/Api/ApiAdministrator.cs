@@ -8,18 +8,13 @@ namespace HomeCinema.Tests.Acceptance.Api
 {
     public class ApiAdministrator : IAdministrator
     {
-        
-
         public void Register(RegistrationModel model)
         {
-            
+            //Send HTTP POST to register
         }
-
         public void Login(string email, string password)
         {
-            
         }
-
         public bool IsLoggedIn()
         {
             return true;

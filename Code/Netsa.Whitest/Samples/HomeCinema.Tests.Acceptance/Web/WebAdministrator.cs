@@ -1,6 +1,7 @@
 using HomeCinema.Tests.Acceptance.Common;
 using HomeCinema.Tests.Acceptance.Common.Models;
 using HomeCinema.Tests.Acceptance.Web.Login;
+using HomeCinema.Tests.Acceptance.Web.Registration;
 using ISC.Whitest.Web.UI.PageObjectModel;
 
 namespace HomeCinema.Tests.Acceptance.Web
@@ -14,7 +15,9 @@ namespace HomeCinema.Tests.Acceptance.Web
         }
         public void Register(RegistrationModel model)
         {
-            
+            _pager.Page<RegistrationPage>()
+                .Open()
+                .FillRegistrationForm(model);
         }
 
         public void Login(string email, string password)
