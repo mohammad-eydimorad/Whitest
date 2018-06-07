@@ -20,7 +20,12 @@ namespace ISC.Whitest.Web.Core.SpecflowExtentions
             return output;
         }
 
-       
+        public static T CreateInstance<T>(this Table table, IScenarioContext context)
+        {
+            var output = table.CreateInstance<T>();
+            ObjectTransformer.Transform(output, context);
+            return output;
+        }
 
         public static List<T> ConvertTableToList<T>(this Table table) where T : new()
         {
