@@ -49,6 +49,7 @@
     <Compile Include="EqualityHelpers\EqualsBuilder.cs" />
     <Compile Include="EqualityHelpers\HashCodeBuilder.cs" />
     <Compile Include="EqualityHelpers\MathUtil.cs" />
+    <Compile Include="Extentions\EnumExtentions.cs" />
     <Compile Include="Extentions\TypeExtentions.cs" />
     <Compile Include="IO\PathHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
