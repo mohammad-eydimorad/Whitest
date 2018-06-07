@@ -11,6 +11,7 @@ namespace ISC.Whitest.Web.UI.PageObjectModel
         {
             this.Driver = driver;
             this.BaseUrl = baseUrl;
+            AfterInitialization();
         }
         protected abstract string RelativeUrl { get; }
         protected string FullUrl => BaseUrl + RelativeUrl;
@@ -33,5 +34,7 @@ namespace ISC.Whitest.Web.UI.PageObjectModel
             }
             return currentDriverUrl.Equals(pageUrl, StringComparison.OrdinalIgnoreCase);
         }
+
+        public virtual void AfterInitialization() { }
     }
 }
