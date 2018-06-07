@@ -10,5 +10,6 @@ Scenario: Registration
 	| Email           | a@a.com |
 	| Password        | 123456  |
 	| ConfirmPassword | 123456  |
+	| Code            | 23      |
 	When I log in
 	Then I should be given access to the site

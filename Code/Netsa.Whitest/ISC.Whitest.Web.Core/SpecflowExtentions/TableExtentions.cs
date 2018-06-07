@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using ISC.Whitest.Web.Core.Context;
 using ISC.Whitest.Web.Core.ValueTransformation;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
@@ -12,12 +13,14 @@ namespace ISC.Whitest.Web.Core.SpecflowExtentions
 {
     public static class TableExtentions
     {
-        public static T CreateInstance<T>(this Table table, ScenarioContext context)
+        public static T CreateInstance<T>(this Table table, string key, IScenarioContext context)
         {
             var output = table.CreateInstance<T>();
-            HandleValueTransformation(output, context);
+            ObjectTransformer.Transform(output, key, context);
             return output;
         }
+
+       
 
         public static List<T> ConvertTableToList<T>(this Table table) where T : new()
         {
@@ -40,7 +43,6 @@ namespace ISC.Whitest.Web.Core.SpecflowExtentions
             }
             return convertedItems;
         }
-
         private static void SetValueOnProperty<T>(PropertyInfo propertyInfo, T obj, string valueOfField) where T : new()
         {
 
@@ -50,25 +52,6 @@ namespace ISC.Whitest.Web.Core.SpecflowExtentions
                 propertyInfo.SetValue(obj, valueOfField);
         }
 
-        private static void HandleValueTransformation<T>(T output, ScenarioContext context)
-        {
-            if (!context.ScenarioContainer.IsRegistered<ValueTransformationHandler>()) return;
-
-            var handler = context.ScenarioContainer.Resolve<ValueTransformationHandler>();
-            var properties = typeof(T).GetProperties();
-            foreach (var propertyInfo in properties)
-            {
-                var transformationAttribute = propertyInfo.GetCustomAttributes(true).OfType<TransformValueAttribute>().FirstOrDefault();
-                if (transformationAttribute != null)
-                {
-                    var newValue = RandomValueGenerator.Generate(transformationAttribute.Type);
-
-                    handler.Add(transformationAttribute.Key, propertyInfo.GetValue(output).ToString(), newValue);
-                    propertyInfo.SetValue(output, newValue);
-                }
-            }
-        }
-
-
+       
     }
 }

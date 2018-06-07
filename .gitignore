@@ -161,3 +161,4 @@ NDependout/
 *.ndproj
 Code/.vs/
 /Code/Netsa.Whitest/.vs/config
+/Code/Netsa.Whitest/BuildDrop/

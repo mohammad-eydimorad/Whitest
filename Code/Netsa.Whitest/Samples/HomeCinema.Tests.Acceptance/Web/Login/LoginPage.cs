@@ -10,10 +10,7 @@ namespace HomeCinema.Tests.Acceptance.Web.Login
     public class LoginPage : BasePage<LoginPage>
     {
         protected override string RelativeUrl => "#/login";
-        public LoginPage()
-        {
-            
-        }
+        public LoginPage(){}
 
         public LoginPage DoLogin(string username, string password)
         {

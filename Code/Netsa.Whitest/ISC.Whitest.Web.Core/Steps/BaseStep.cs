@@ -1,23 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ISC.Whitest.Web.Core.Context;
+using Mapster;
 using TechTalk.SpecFlow;
 
 namespace ISC.Whitest.Web.Core.Steps
 {
     public abstract class BaseStep
     {
-        protected ScenarioContext Context;
-        protected BaseStep(ScenarioContext context)
+        protected readonly IScenarioContext CurrentScenarioContext;
+        protected BaseStep(ScenarioContext currentScenarioContext)
         {
-            Context = context;
-        }
-
-        public void AddModeltoContext(string key, object model)
-        {
-            Context.Add(key, model);
+            CurrentScenarioContext = new SpecflowScenarioContextAdapter(currentScenarioContext);
         }
     }
 }

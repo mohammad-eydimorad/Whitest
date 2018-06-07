@@ -9,13 +9,10 @@ namespace ISC.Whitest.Web.Core.ValueTransformation
     [AttributeUsage(AttributeTargets.Property)]
     public class TransformValueAttribute : Attribute
     {
-        public string Key { get; }
-        public FieldType Type { get; }
-
-        public TransformValueAttribute(string key, FieldType type)
+        public FieldType FieldType { get; }
+        public TransformValueAttribute(FieldType fieldType = FieldType.Auto)
         {
-            Key = key;
-            Type = type;
+            this.FieldType = fieldType;
         }
     }
 }

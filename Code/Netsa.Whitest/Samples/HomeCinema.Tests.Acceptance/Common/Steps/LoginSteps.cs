@@ -11,7 +11,7 @@ namespace HomeCinema.Tests.Acceptance.Common.Steps
     public class LoginSteps : BaseStep
     {
         private readonly IAdministrator _administrator;
-        public LoginSteps(ScenarioContext context, IAdministrator administrator) : base(context)
+        public LoginSteps(ScenarioContext currentScenarioContext, IAdministrator administrator) : base(currentScenarioContext)
         {
             this._administrator = administrator;
         }
@@ -19,15 +19,15 @@ namespace HomeCinema.Tests.Acceptance.Common.Steps
         [Given(@"I have already registered with following information :")]
         public void GivenIHaveAlreadyRegisteredWithFollowingInformation(Table table)
         {
-            var model = table.CreateInstance<RegistrationTestModel>(this.Context);
-            base.AddModeltoContext(UserConstants.Registration,model);
+            var model = table.CreateInstance<RegistrationTestModel>("",this.CurrentScenarioContext);
+            CurrentScenarioContext.Add(UserConstants.Registration,model);
             _administrator.Register(model);
         }
         
         [When(@"I log in")]
         public void WhenILogIn()
         {
-            var model = Context.Get<RegistrationTestModel>(UserConstants.Registration);
+            var model = CurrentScenarioContext.Get<RegistrationTestModel>(UserConstants.Registration);
             _administrator.Login(model.Email, model.Password);
         }
         

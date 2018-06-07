@@ -2,7 +2,13 @@
 {
     public enum FieldType
     {
+        Auto,
         Email,
-        Username
+        Username,
+        Firstname,
+        Lastname,
+        UnformattedString,
+        Guid,
+        Number,
     }
 }

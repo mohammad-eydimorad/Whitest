@@ -34,8 +34,8 @@ namespace HomeCinema.Tests.Acceptance.Common.Hooks
 
         private void RegisterValueTransformation()
         {
-            var transformationHandler = new ValueTransformationHandler();
-            _objectContainer.RegisterInstanceAs(transformationHandler);
+            var valueManager = new TransformValueManager();
+            _objectContainer.RegisterInstanceAs(valueManager);
         }
         private void RegisterCurrentUser()
         {

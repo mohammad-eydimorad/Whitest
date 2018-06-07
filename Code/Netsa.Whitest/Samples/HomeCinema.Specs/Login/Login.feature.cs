@@ -94,11 +94,14 @@ this.ScenarioSetup(scenarioInfo);
             table1.AddRow(new string[] {
                         "ConfirmPassword",
                         "123456"});
+            table1.AddRow(new string[] {
+                        "Code",
+                        "23"});
 #line 8
  testRunner.Given("I have already registered with following information :", ((string)(null)), table1, "Given ");
-#line 13
- testRunner.When("I log in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 14
+ testRunner.When("I log in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 15
  testRunner.Then("I should be given access to the site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

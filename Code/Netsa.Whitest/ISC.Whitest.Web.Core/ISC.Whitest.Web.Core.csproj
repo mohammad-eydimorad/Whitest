@@ -19,7 +19,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\BuildDrop\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -27,7 +27,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\BuildDrop\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -35,6 +35,10 @@
   <ItemGroup>
     <Reference Include="Faker.NET4, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Faker.Net.1.0.3\lib\net40\Faker.NET4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mapster, Version=3.1.8.0, Culture=neutral, PublicKeyToken=2f39883af23c29a8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mapster.3.1.8\lib\net45\Mapster.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -59,6 +63,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context\IScenarioContext.cs" />
+    <Compile Include="Context\SpecflowScenarioContextAdapter.cs" />
     <Compile Include="Hooks\IWebConfiguratonHook.cs" />
     <Compile Include="Hosting\Core\StartableHostHook.cs" />
     <Compile Include="Hosting\Core\IHost.cs" />
@@ -66,10 +72,14 @@
     <Compile Include="Hosting\IISExpressHosting\IISExpressConstants.cs" />
     <Compile Include="SpecflowExtentions\TableExtentions.cs" />
     <Compile Include="Steps\BaseStep.cs" />
+    <Compile Include="ValueTransformation\AutoFieldTypeResolver.cs" />
+    <Compile Include="ValueTransformation\ObjectTransformer.cs" />
+    <Compile Include="ValueTransformation\TransformedProperty.cs" />
+    <Compile Include="ValueTransformation\DefaultTransformKeys.cs" />
     <Compile Include="ValueTransformation\RandomValueGenerator.cs" />
     <Compile Include="ValueTransformation\FieldType.cs" />
     <Compile Include="ValueTransformation\TransformValueAttribute.cs" />
-    <Compile Include="ValueTransformation\ValueTransformationHandler.cs" />
+    <Compile Include="ValueTransformation\TransformValueManager.cs" />
     <Compile Include="WebTestConfiguration.cs" />
     <Compile Include="WebTestConfigurationBuilder.cs" />
     <Compile Include="Hosting\IISExpressHosting\IISExpressHost.cs" />
