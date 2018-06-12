@@ -16,9 +16,9 @@ namespace ISC.Whitest.Web.UI.PageObjectModel
         protected abstract string RelativeUrl { get; }
         protected string FullUrl => BaseUrl + RelativeUrl;
 
-        public virtual T Open()
+        public virtual T Open(string appendix = "")
         {
-            Driver.Navigate().GoToUrl(FullUrl);
+            Driver.Navigate().GoToUrl(FullUrl + appendix);
             return (T)this;
         }
 

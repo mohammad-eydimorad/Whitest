@@ -34,6 +34,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,6 +50,9 @@
     <Compile Include="EqualityHelpers\EqualsBuilder.cs" />
     <Compile Include="EqualityHelpers\HashCodeBuilder.cs" />
     <Compile Include="EqualityHelpers\MathUtil.cs" />
+    <Compile Include="Extentions\DataRowExtentions.cs" />
+    <Compile Include="Extentions\DictionaryExtentions.cs" />
+    <Compile Include="Extentions\KnownColorUtils.cs" />
     <Compile Include="Extentions\EnumExtentions.cs" />
     <Compile Include="Extentions\TypeExtentions.cs" />
     <Compile Include="IO\PathHelper.cs" />

@@ -69,6 +69,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extentions\WebElementExtentions.cs" />
     <Compile Include="WebDriverCustomWaits.cs" />
     <Compile Include="Configuration\WebUITestConfiguration.cs" />
     <Compile Include="CssSelectors\CssSelector.cs" />

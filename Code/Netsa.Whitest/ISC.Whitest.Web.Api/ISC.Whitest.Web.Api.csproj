@@ -53,8 +53,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Http\AuthorizationHeaderFactory.cs" />
+    <Compile Include="Http\ContentType.cs" />
+    <Compile Include="Http\ContentTypeExtentions.cs" />
+    <Compile Include="Http\HttpHeaders.cs" />
+    <Compile Include="Http\HttpRequestBuilder.cs" />
+    <Compile Include="Http\HttpRequestExtentions.cs" />
+    <Compile Include="Http\IHttpRequestBuilder.cs" />
+    <Compile Include="Http\IHttpRequestsWithContentBuilder.cs" />
+    <Compile Include="Http\TokenType.cs" />
     <Compile Include="InMemoryServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serialization\ISerializer.cs" />
+    <Compile Include="Serialization\JsonSerializer.cs" />
+    <Compile Include="Serialization\PlainTextSerializer.cs" />
+    <Compile Include="Serialization\SerializerFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ISC.Whitest.Core\ISC.Whitest.Core.csproj">

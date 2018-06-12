@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FluentAssertions;
 using ISC.Whitest.Web.Core.ValueTransformation;
+using Newtonsoft.Json;
 using Xunit;
 
 namespace ISC.Whitest.Web.Core.Tests.ValueTransformation
