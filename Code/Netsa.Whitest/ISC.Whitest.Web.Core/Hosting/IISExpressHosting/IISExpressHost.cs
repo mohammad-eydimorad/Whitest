@@ -4,6 +4,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
+using ISC.Whitest.Core.Extentions;
 using ISC.Whitest.Web.Core.Hosting.Core;
 
 namespace ISC.Whitest.Web.Core.Hosting.IISExpressHosting
@@ -26,10 +27,10 @@ namespace ISC.Whitest.Web.Core.Hosting.IISExpressHosting
 
             if (ushort.MinValue > port || ushort.MaxValue < port)
             {
-                throw new ArgumentOutOfRangeException("port");
+                throw new ArgumentOutOfRangeException(nameof(port));
             }
 
-            Path = path;
+            path = path.TrimEnd('\\').SurroundByDoubleQoutes();
             Port = port;
 
             if (string.IsNullOrEmpty(iisExePath))
@@ -45,7 +46,6 @@ namespace ISC.Whitest.Web.Core.Hosting.IISExpressHosting
             };
         }
 
-        public string Path { get; }
         public int Port { get; }
 
         public string Address => $"http://localhost:{Port}";

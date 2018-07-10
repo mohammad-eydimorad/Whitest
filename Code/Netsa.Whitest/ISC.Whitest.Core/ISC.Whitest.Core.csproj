@@ -54,6 +54,7 @@
     <Compile Include="Extentions\DictionaryExtentions.cs" />
     <Compile Include="Extentions\KnownColorUtils.cs" />
     <Compile Include="Extentions\EnumExtentions.cs" />
+    <Compile Include="Extentions\StringExtentions.cs" />
     <Compile Include="Extentions\TypeExtentions.cs" />
     <Compile Include="IO\PathHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
