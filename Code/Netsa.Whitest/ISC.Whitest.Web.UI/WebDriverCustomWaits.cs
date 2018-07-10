@@ -11,12 +11,12 @@ namespace ISC.Whitest.Web.UI
 {
     public static class WebDriverCustomWaits
     {
-        public static void WaitUnitElementAppear(this IWebDriver driver, By selector)
+        public static void WaitUntilElementAppear(this IWebDriver driver, By selector)
         {
             driver.WaitUntil(ExpectedConditions.ElementIsVisible(selector));
         }
 
-        public static void WaitUtillementDisappear(this IWebDriver driver, By selector)
+        public static void WaitUntilElementDisappear(this IWebDriver driver, By selector)
         {
             driver.WaitUntil(ExpectedConditions.InvisibilityOfElementLocated(selector));
         }
