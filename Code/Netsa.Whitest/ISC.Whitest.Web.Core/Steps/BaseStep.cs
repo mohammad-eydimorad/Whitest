@@ -10,7 +10,7 @@ using TechTalk.SpecFlow;
 
 namespace ISC.Whitest.Web.Core.Steps
 {
-    public abstract class BaseStep
+    public abstract class BaseStep : TechTalk.SpecFlow.Steps
     {
         protected readonly IScenarioContext CurrentScenarioContext;
         protected BaseStep(ScenarioContext currentScenarioContext)
