@@ -10,20 +10,20 @@ namespace ISC.Whitest.Web.UI.PageObjectModel
 {
     public class PageFactory : IPageFactory
     {
-        private readonly IWebDriver _driver;
+        public IWebDriver Driver { get; }
         public PageFactory()
         {
-            _driver = WebUITestConfiguration.DriverFactory();
+            Driver = WebUITestConfiguration.DriverFactory();
         }
         public T Create<T>() where T : BasePage<T>, new()
         {
             var page = new T();
-            page.Initial(_driver, WebUITestConfiguration.BaseUrl);
+            page.Initial(Driver, WebUITestConfiguration.BaseUrl);
             return page;
         }
         public void Dispose()
         {
-            _driver.Close();
+            Driver.Close();
         }
     }
 }

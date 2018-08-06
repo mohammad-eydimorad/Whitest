@@ -67,12 +67,12 @@ Task("Create-Nuget-Packages")
         var dependencies = new NuGet.PackageReferenceFile(filePath.FullPath).GetPackageReferences();
         allDependencies.AddRange(dependencies);
     }
+
     var consolidateDependencies = allDependencies
                         .GroupBy(a=> new {a.Id, a.Version}, (key,value)=> new {key,value})
                         .GroupBy(a=>a.key.Id, (key, value)=> new {id= key, count = value.Count()})
                         .Where(a=>a.count > 1)
                         .ToList();
-
     if (consolidateDependencies.Count() > 0)
     {
         foreach(var package in consolidateDependencies){
@@ -81,23 +81,19 @@ Task("Create-Nuget-Packages")
         throw new Exception("Consolidate dependencies found");
     }
     
-
-
-    // var nuGetPackSettings = new NuGetPackSettings
-	// {
-    //     Authors = new List<string>(){ "H.Ahmadi"},
-	// 	OutputDirectory = tempPath,
-	// 	IncludeReferencedProjects = true,
-	// 	Properties = new Dictionary<string, string>
-	// 	{
-	// 		{ "Configuration", "Release" }
-	// 	},
-    //     Version= string.Format("1.0.0.{0}-alpha", buildVersion),
-	// };
-
-    // NuGetPack(@"../ISC.Whitest.Web.Api/ISC.Whitest.Web.Api.csproj", nuGetPackSettings);
-    // NuGetPack(@"../ISC.Whitest.Web.UI/ISC.Whitest.Web.UI.csproj", nuGetPackSettings);
-    // NuGetPack(@"../ISC.Whitest.Core/ISC.Whitest.Core.csproj", nuGetPackSettings);
+    var nuGetPackSettings = new NuGetPackSettings
+	{
+        Authors = new List<string>(){ "H.Ahmadi"},
+		OutputDirectory = tempPath,
+		Properties = new Dictionary<string, string>
+		{
+			{ "Configuration", "Release" }
+		},
+        Version= string.Format("1.0.0.{0}-alpha", buildVersion),
+	};
+    
+    var paths = candidateProjects.Select(a=> a.Path).ToList();
+    NuGetPack(paths, nuGetPackSettings);
 });
 
 //  Task("Push-Nuget-Packages")
