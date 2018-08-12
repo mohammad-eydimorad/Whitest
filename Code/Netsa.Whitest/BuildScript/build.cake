@@ -34,12 +34,17 @@ Task("Build")
     .Does(()=>
 {
 
-    MSBuild(solutionPath, configurator =>
-        configurator.SetConfiguration(configuration)
-            .SetVerbosity(Verbosity.Minimal)
-            .UseToolVersion(MSBuildToolVersion.VS2015)
-            .SetMSBuildPlatform(MSBuildPlatform.x86)
-            .SetPlatformTarget(PlatformTarget.MSIL));
+    DotNetBuild(solutionPath, settings =>
+        settings.SetConfiguration(configuration)
+            .SetVerbosity(Core.Diagnostics.Verbosity.Minimal)
+            .WithTarget("Build"));
+
+    // MSBuild(solutionPath, configurator =>
+    //     configurator.SetConfiguration(configuration)
+    //         .SetVerbosity(Verbosity.Minimal)
+    //         .UseToolVersion(MSBuildToolVersion.VS2015)
+    //         .SetMSBuildPlatform(MSBuildPlatform.x86)
+    //         .SetPlatformTarget(PlatformTarget.MSIL));
 });
 
 // Task("Run-Tests")
