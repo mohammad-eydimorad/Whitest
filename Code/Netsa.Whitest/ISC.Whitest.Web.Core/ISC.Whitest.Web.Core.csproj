@@ -70,6 +70,7 @@
     <Compile Include="Hosting\Core\IHost.cs" />
     <Compile Include="Hosting\Core\IStartableHost.cs" />
     <Compile Include="Hosting\IISExpressHosting\IISExpressConstants.cs" />
+    <Compile Include="Logging\Logger.cs" />
     <Compile Include="SpecflowExtentions\TableExtentions.cs" />
     <Compile Include="Steps\BaseStep.cs" />
     <Compile Include="ValueTransformation\AutoFieldTypeResolver.cs" />

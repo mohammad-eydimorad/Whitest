@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using ISC.Whitest.Core.Extentions;
 using ISC.Whitest.Web.Core.Hosting.Core;
+using ISC.Whitest.Web.Core.Logging;
 
 namespace ISC.Whitest.Web.Core.Hosting.IISExpressHosting
 {
@@ -62,6 +63,7 @@ namespace ISC.Whitest.Web.Core.Hosting.IISExpressHosting
             if (cancellationToken.IsCancellationRequested)
             {
                 tcs.SetCanceled();
+                Logger.Write($"IIS express cancelled at first of method.");
                 return tcs.Task;
             }
 
@@ -76,14 +78,16 @@ namespace ISC.Whitest.Web.Core.Hosting.IISExpressHosting
                         if (cancellationToken.IsCancellationRequested)
                         {
                             tcs.TrySetCanceled();
+                            Logger.Write($"IIS express cancelled at first of output method.");
                         }
 
                         try
                         {
-                            Debug.WriteLine("  [StdOut]\t{0}", (object)e.Data);
+                            Logger.Write($"Output: \t{e.Data}");
 
                             if (string.Equals(READY_MSG, e.Data, StringComparison.OrdinalIgnoreCase))
                             {
+                                Logger.Write($"IIS express Ready message recieved !");
                                 proc.OutputDataReceived -= onOutput;
                                 process = proc;
                                 tcs.TrySetResult(null);
@@ -91,21 +95,25 @@ namespace ISC.Whitest.Web.Core.Hosting.IISExpressHosting
                         }
                         catch (Exception ex)
                         {
+                            Logger.Write($"IIS express exception occured ! {ex.ExtractFullMessage()}");
                             tcs.TrySetException(ex);
                             proc.Dispose();
                         }
                     };
 
                 proc.OutputDataReceived += onOutput;
-                proc.ErrorDataReceived += (sender, e) => Debug.WriteLine("  [StdOut]\t{0}", (object)e.Data);
-                proc.Exited += (sender, e) => Debug.WriteLine("  IIS Express exited.");
+                proc.ErrorDataReceived += (sender, e) => Logger.Write($"Error Data Recieved : \t{e.Data}");
+                proc.Exited += (sender, e) => Logger.Write("IIS Express exited.");
 
+                Logger.Write($"Going to start iis express");
                 proc.Start();
+                Logger.Write($"IIS express started !");
                 proc.BeginOutputReadLine();
                 proc.BeginErrorReadLine();
             }
             catch (Exception ex)
             {
+                Logger.Write($"IIS express exception occured (end of method) ! {ex.ExtractFullMessage()}");
                 tcs.TrySetException(ex);
             }
 

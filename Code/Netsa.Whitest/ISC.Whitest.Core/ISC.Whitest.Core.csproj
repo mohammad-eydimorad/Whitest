@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\ConfigKeys.cs" />
     <Compile Include="Configuration\ConfigService.cs" />
     <Compile Include="DefensiveProgramming\Ensure.cs" />
     <Compile Include="DefensiveProgramming\Guard.cs" />
@@ -50,6 +51,7 @@
     <Compile Include="EqualityHelpers\EqualsBuilder.cs" />
     <Compile Include="EqualityHelpers\HashCodeBuilder.cs" />
     <Compile Include="EqualityHelpers\MathUtil.cs" />
+    <Compile Include="Extentions\ExceptionExtensions.cs" />
     <Compile Include="Extentions\DataRowExtentions.cs" />
     <Compile Include="Extentions\DictionaryExtentions.cs" />
     <Compile Include="Extentions\KnownColorUtils.cs" />
