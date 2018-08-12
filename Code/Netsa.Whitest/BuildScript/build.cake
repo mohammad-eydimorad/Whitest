@@ -36,7 +36,6 @@ Task("Build")
 
     DotNetBuild(solutionPath, settings =>
         settings.SetConfiguration(configuration)
-            .SetVerbosity(Core.Diagnostics.Verbosity.Minimal)
             .WithTarget("Build"));
 
     // MSBuild(solutionPath, configurator =>
