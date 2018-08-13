@@ -8,6 +8,9 @@ var target = Argument("target", "Default");
 var configuration = Argument("Configuration", "Release");
 var solutionPath = Argument("SolutionPath", "../ISC.Whitest.sln");
 var buildVersion = Argument("BuildVersion", "0");
+var nugetServerUrl = Argument("NugetServerUrl","https://www.myget.org/F/isc-feed/api/v2/package");
+var nugetApiKey = Argument("NugetApiKey","a03fe7c7-f8b0-4f4a-8f7b-768e1347cdbe");
+
 
 if (String.IsNullOrEmpty(solutionPath)) throw new Exception("argument 'SolutionPath' is not provided");
 
@@ -99,7 +102,7 @@ Task("Create-Nuget-Packages")
 		{
 			{ "Configuration", "Release" }
 		},
-        Version= string.Format("1.0.0.{0}-alpha", buildVersion),
+        Version= string.Format("1.0.{0}", buildVersion),
 	};
     
     var files = new List<NuSpecContent>();
@@ -117,28 +120,28 @@ Task("Create-Nuget-Packages")
     NuGetPack(nuGetPackSettings);
 });
 
-//  Task("Push-Nuget-Packages")
-// .IsDependentOn("Create-Nuget-Packages")
-// .Does(() =>
-// {
-    //  var files = System.IO.Directory.GetFiles(tempPath, "*.nupkg")
-    //                                     .Select(z => new FilePath(z)).ToList();
+ Task("Push-Nuget-Packages")
+.Does(() =>
+{
+     var files = System.IO.Directory.GetFiles(tempPath, "*.nupkg")
+                                        .Select(z => new FilePath(z)).ToList();
 
-    // foreach(var f in files){
-    //     Console.WriteLine(f);
-    // }
-    //                 var settings = new NuGetPushSettings()
-    //                 {
-    //                     Source = nugetServerUrl,
-    //                     ApiKey = nugetApiKey,
-    //                 };
-    // NuGetPush(files, settings);
-// });
+    foreach(var f in files){
+        Console.WriteLine(f);
+    }
+                    var settings = new NuGetPushSettings()
+                    {
+                        Source = nugetServerUrl,
+                        ApiKey = nugetApiKey,
+                    };
+    NuGetPush(files, settings);
+});
 
 Task("Default")
     .IsDependentOn("Clean")
     .IsDependentOn("Restore-NuGet-Packages")
     .IsDependentOn("Build")
-    .IsDependentOn("Create-Nuget-Packages");
+    .IsDependentOn("Create-Nuget-Packages")
+    .IsDependentOn("Push-Nuget-Packages");
 
 RunTarget(target);
