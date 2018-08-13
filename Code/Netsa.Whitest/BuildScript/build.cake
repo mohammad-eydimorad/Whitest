@@ -81,6 +81,8 @@ Task("Create-Nuget-Packages")
     }
     
     var nugetDependencies = allDependencies
+                    .GroupBy(p => p.Id)
+                    .Select(g => g.First())
                     .Select(a=> new NuSpecDependency()
                     {
                         Version = a.Version.ToString(),
