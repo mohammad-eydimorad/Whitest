@@ -1,5 +1,6 @@
 #tool "nuget:?package=xunit.runner.console"
 #addin "NuGet.Core"
+#addin nuget:?package=System.Threading.Tasks.Dataflow&version=4.5.24
 #r "References/CSProjectHelpers.dll"
 
 var target = Argument("target", "Default");
@@ -37,13 +38,6 @@ Task("Build")
     DotNetBuild(solutionPath, settings =>
         settings.SetConfiguration(configuration)
             .WithTarget("Build"));
-
-    // MSBuild(solutionPath, configurator =>
-    //     configurator.SetConfiguration(configuration)
-    //         .SetVerbosity(Verbosity.Minimal)
-    //         .UseToolVersion(MSBuildToolVersion.VS2015)
-    //         .SetMSBuildPlatform(MSBuildPlatform.x86)
-    //         .SetPlatformTarget(PlatformTarget.MSIL));
 });
 
 // Task("Run-Tests")
