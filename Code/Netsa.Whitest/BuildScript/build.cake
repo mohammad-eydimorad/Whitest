@@ -2,6 +2,7 @@
 #addin "NuGet.Core"
 #addin nuget:?package=System.Threading.Tasks.Dataflow&version=4.5.24
 #r "References/CSProjectHelpers.dll"
+#r "References/Microsoft.Build.dll"
 
 var target = Argument("target", "Default");
 var configuration = Argument("Configuration", "Release");
