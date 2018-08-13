@@ -11,7 +11,7 @@ namespace ISC.Whitest.Web.Core.Context
     {
         IObjectContainer ScenarioContainer { get; }
         void Add(string key, object model);
-        void Update(string key, object model);
+        void AddOrUpdate(string key, object model);
         T Get<T>(string key);
     }
 }

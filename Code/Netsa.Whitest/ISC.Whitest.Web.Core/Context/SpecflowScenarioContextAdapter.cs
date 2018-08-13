@@ -19,7 +19,7 @@ namespace ISC.Whitest.Web.Core.Context
         {
             _scenarioContext.Add(key, model);
         }
-        public void Update(string key, object model)
+        public void AddOrUpdate(string key, object model)
         {
             _scenarioContext[key] = model;
         }

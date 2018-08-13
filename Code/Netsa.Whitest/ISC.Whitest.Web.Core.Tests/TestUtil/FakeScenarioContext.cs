@@ -19,7 +19,7 @@ namespace ISC.Whitest.Web.Core.Tests.TestUtil
             this._items.Add(key, model);
         }
 
-        public void Update(string key, object model)
+        public void AddOrUpdate(string key, object model)
         {
             this._items[key] = model;
         }
