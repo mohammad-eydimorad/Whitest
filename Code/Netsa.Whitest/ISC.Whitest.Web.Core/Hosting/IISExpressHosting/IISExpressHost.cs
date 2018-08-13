@@ -40,7 +40,7 @@ namespace ISC.Whitest.Web.Core.Hosting.IISExpressHosting
             startInfo = new ProcessStartInfo
             {
                 FileName = iisExePath,
-                Arguments = $"/path:{path} /port:{port}",
+                Arguments = $"/path:{path} /port:{port} /trace:error",
                 RedirectStandardOutput = true,
                 RedirectStandardError = true,
                 UseShellExecute = false
