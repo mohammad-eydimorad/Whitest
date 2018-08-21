@@ -1,4 +1,5 @@
-﻿using ISC.Whitest.Web.Core.Hooks;
+﻿using System.Threading;
+using ISC.Whitest.Web.Core.Hooks;
 
 namespace ISC.Whitest.Web.Core.Hosting.Core
 {
@@ -12,6 +13,12 @@ namespace ISC.Whitest.Web.Core.Hosting.Core
         public void Start()
         {
             _host.Start();
+            WaitForHostCompleted();
+        }
+
+        private void WaitForHostCompleted()
+        {
+            Thread.Sleep(500);
         }
 
         public void Stop()
