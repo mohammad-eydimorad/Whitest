@@ -5,6 +5,6 @@ branches:
   only:
     - master
 build_script:
-  - ps: .\BuildScript\build.ps1 -Script BuildScript/build.cake -ScriptArgs '-BuildVersion="{build}"'
+  - ps: .\BuildScript\build.ps1 -Script BuildScript/build.cake -ScriptArgs '-BuildVersion={build}'
 test: off
 deploy: off
