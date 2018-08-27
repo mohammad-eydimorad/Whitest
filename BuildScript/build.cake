@@ -8,8 +8,8 @@ var target = Argument("target", "Default");
 var configuration = Argument("Configuration", "Release");
 var solutionPath = Argument("SolutionPath", "../Code/Netsa.Whitest/ISC.Whitest.sln");
 var buildVersion = Argument("BuildVersion", "0");
-var nugetServerUrl = Argument("NugetServerUrl","https://www.myget.org/F/isc-feed/api/v2/package");
-var nugetApiKey = Argument("NugetApiKey","a03fe7c7-f8b0-4f4a-8f7b-768e1347cdbe");
+var nugetServerUrl = Argument("NugetServerUrl","https://www.nuget.org/api/v2/package/");
+var nugetApiKey = Argument("NugetApiKey","");
 
 
 if (String.IsNullOrEmpty(solutionPath)) throw new Exception("argument 'SolutionPath' is not provided");
@@ -96,7 +96,7 @@ Task("Create-Nuget-Packages")
                     }).ToList();
     var nuGetPackSettings = new NuGetPackSettings
 	{
-        Id= "ISC.Whitest",
+        Id= "Whitest",
         Authors = new List<string>(){ "H.Ahmadi","M.Eydimorad"},
         Description ="Unit, Integration and Acceptance testing framework based on Selenium and Specflow",
 		OutputDirectory = tempPath,
@@ -126,6 +126,14 @@ Task("Create-Nuget-Packages")
  Task("Push-Nuget-Packages")
 .Does(() =>
 {
+    if (nugetApiKey == ""){
+        var apiKey = EnvironmentVariable("NUGET_API_KEY")
+        if (apiKey == null){
+            throw new Exception("NugetApiKey is not provided")
+        }
+        nugetApiKey = apiKey;
+    }
+
      var files = System.IO.Directory.GetFiles(tempPath, "*.nupkg")
                                         .Select(z => new FilePath(z)).ToList();
 
