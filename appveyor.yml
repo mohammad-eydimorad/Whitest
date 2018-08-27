@@ -1,10 +1,10 @@
-version: {build}
+version: 0.{build}
 image: Visual Studio 2017
 configuration: Release
 branches:
   only:
     - master
 build_script:
-  - ps: .\BuildScript\build.ps1 -Script BuildScript/build.cake -ScriptArgs '-BuildVersion="{version}"'
+  - ps: .\BuildScript\build.ps1 -Script BuildScript/build.cake -ScriptArgs '-BuildVersion={build}'
 test: off
 deploy: off
