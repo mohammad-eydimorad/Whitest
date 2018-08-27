@@ -6,7 +6,7 @@
 
 var target = Argument("target", "Default");
 var configuration = Argument("Configuration", "Release");
-var solutionPath = Argument("SolutionPath", "../ISC.Whitest.sln");
+var solutionPath = Argument("SolutionPath", "../Code/Netsa.Whitest/ISC.Whitest.sln");
 var buildVersion = Argument("BuildVersion", "0");
 var nugetServerUrl = Argument("NugetServerUrl","https://www.myget.org/F/isc-feed/api/v2/package");
 var nugetApiKey = Argument("NugetApiKey","a03fe7c7-f8b0-4f4a-8f7b-768e1347cdbe");

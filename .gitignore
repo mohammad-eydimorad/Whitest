@@ -156,7 +156,9 @@ $RECYCLE.BIN/
 # Mac desktop service store files
 .DS_Store
 *.tf1
-Code/Netsa.Whitest/BuildScript/tools/
+/BuildScript/tools/*
+!BuildScript/tools/packages.config
+!BuildScript/tools/packages.config.md5sum
 NDependout/
 *.ndproj
 Code/.vs/
