@@ -18,6 +18,13 @@ var tempPath = System.IO.Path.Combine(System.IO.Path.GetTempPath(),"ISC_" + Guid
 System.IO.Directory.CreateDirectory(tempPath);
 Console.WriteLine("Temp path is " + tempPath);
 
+if (buildVersion == "0"){
+    var appVeyorBuildNumber = EnvironmentVariable("APPVEYOR_BUILD_NUMBER");
+    if (appVeyorBuildNumber != null){
+        buildVersion = appVeyorBuildNumber;
+    }
+}
+
 Task("Clean")
     .Does(() =>
 {
