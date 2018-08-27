@@ -14,10 +14,6 @@ var nugetApiKey = Argument("NugetApiKey","a03fe7c7-f8b0-4f4a-8f7b-768e1347cdbe")
 
 if (String.IsNullOrEmpty(solutionPath)) throw new Exception("argument 'SolutionPath' is not provided");
 
-if (TFBuild.IsRunningOnVSTS || TFBuild.IsRunningOnTFS){
-    buildVersion = TFBuild.Environment.Build.Number;
-}
-
 var tempPath = System.IO.Path.Combine(System.IO.Path.GetTempPath(),"ISC_" + Guid.NewGuid().ToString().Replace("-","") + @"\");
 System.IO.Directory.CreateDirectory(tempPath);
 Console.WriteLine("Temp path is " + tempPath);
