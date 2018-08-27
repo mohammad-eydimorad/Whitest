@@ -127,9 +127,9 @@ Task("Create-Nuget-Packages")
 .Does(() =>
 {
     if (nugetApiKey == ""){
-        var apiKey = EnvironmentVariable("NUGET_API_KEY")
+        var apiKey = EnvironmentVariable("NUGET_API_KEY");
         if (apiKey == null){
-            throw new Exception("NugetApiKey is not provided")
+            throw new Exception("NugetApiKey is not provided");
         }
         nugetApiKey = apiKey;
     }
